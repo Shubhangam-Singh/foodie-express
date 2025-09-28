@@ -266,7 +266,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Shubhangam Singh**
 - GitHub: [@Shubhangam-Singh](https://github.com/Shubhangam-Singh)
-- LinkedIn: [Connect with me](https://linkedin.com/in/shubhangam-singh)
+- LinkedIn: [Connect with me](https://www.linkedin.com/in/shubhangam2005singh)
 
 ## 🙏 Acknowledgments
 
