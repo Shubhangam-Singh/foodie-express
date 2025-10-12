@@ -37,7 +37,7 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: linear-gradient(90deg, #81dd17, #98ff23);
     border-radius: 10px;
     animation: expandWidth 0.8s ease-out 0.3s both;
 }

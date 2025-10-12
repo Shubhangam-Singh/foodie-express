@@ -69,12 +69,12 @@
 
 .explore-menu-list-item:hover img {
     transform: scale(1.1) rotate(5deg);
-    border-color: #FF4C24;
+    border-color: #91ff13;
     box-shadow: 0 8px 25px rgba(255, 76, 36, 0.3);
 }
 
 .explore-menu-list-item.Active img {
-    border: 3px solid #FF4C24;
+    border: 3px solid #91ff13;
     padding: 2px;
     box-shadow: 0 8px 25px rgba(255, 76, 36, 0.3);
 }
@@ -88,12 +88,12 @@
 }
 
 .explore-menu-list-item:hover p {
-    color: #FF4C24;
+    color: #91ff13;
     transform: translateY(-2px);
 }
 
 .explore-menu-list-item.Active p {
-    color: #FF4C24;
+    color: #91ff13;
     font-weight: 700;
 }
 

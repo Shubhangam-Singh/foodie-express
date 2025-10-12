@@ -156,7 +156,7 @@
 }
 
 .food-item:hover .food-item-name-rating p {
-    color: #FF4C24;
+    color: #91ff13;
 }
 
 .food-item-name-rating img {
@@ -181,7 +181,7 @@
 }
 
 .food-item-price {
-    color: #FF4C24;
+    color: #91ff13;
     font-size: 24px;
     font-weight: 700;
     margin-top: 10px;
@@ -198,7 +198,7 @@
     left: 0;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: linear-gradient(90deg,  #81dd17, #98ff23);
     border-radius: 10px;
     transition: width 0.3s ease;
 }

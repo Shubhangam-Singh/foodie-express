@@ -56,7 +56,7 @@
     transform: translateX(-50%) scaleX(0);
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: linear-gradient(90deg, #80c403, #c8ff00);
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
@@ -67,11 +67,11 @@
 }
 
 .navbar-menu a:hover {
-    color: #FF4C24;
+    color: #80c403;
 }
 
 .navbar-menu .active {
-    color: #FF4C24;
+    color: #80c403;
     font-weight: 600;
 }
 
@@ -113,7 +113,7 @@
     position: absolute;
     min-width: 10px;
     min-height: 10px;
-    background-color: #FF4C24;
+    background-color: #80c403;
     border-radius: 50%;
     top: -5px;
     right: -5px;
@@ -132,7 +132,7 @@
 }
 
 .navbar-right button {
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: linear-gradient(135deg, #80c403, #c8ff00);
     font-size: 16px;
     color: white;
     border: none;
@@ -179,7 +179,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #FF4C24;
+    border: 2px solid #80c403;
     padding: 2px;
     transition: all 0.3s ease;
     object-fit: cover;
@@ -226,7 +226,7 @@
 }
 
 .navbar-profile-dropdown li:hover {
-    color: #FF4C24;
+    color: #80c403;
     transform: translateX(5px);
 }
 

@@ -55,7 +55,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35, #FFC837);
+    background: linear-gradient(90deg, #81dd17, #5aa306, #d0ff01);
     border-radius: 20px 20px 0 0;
 }
 
@@ -69,7 +69,7 @@
 .login-popup-title h2 {
     font-size: 28px;
     font-weight: 700;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: linear-gradient(135deg, #81dd17, #5aa306);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -121,7 +121,7 @@
     padding: 14px;
     border-radius: 12px;
     color: white;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: linear-gradient(135deg, #81dd17, #5aa306);
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -173,7 +173,7 @@
     cursor: pointer;
     width: 18px;
     height: 18px;
-    accent-color: #FF4C24;
+    accent-color: #81dd17;
 }
 
 .login-popup-condition p {
@@ -189,7 +189,7 @@
 }
 
 .login-popup-container p span {
-    color: #FF4C24;
+    color: #81dd17;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -203,7 +203,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #FF4C24;
+    background: #81dd17;
     transition: width 0.3s ease;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .login-popup-container p span:hover {
-    color: #FF6B35;
+    color: #66be01;
 }
 
 /* Loading state (optional) */

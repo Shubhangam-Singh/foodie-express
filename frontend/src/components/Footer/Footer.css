@@ -18,7 +18,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35, #FFC837);
+    background: linear-gradient(90deg,  #81dd17, #98ff23, #c1f30d);
 }
 
 .footer::after {
@@ -98,7 +98,7 @@
     left: 0;
     width: 40px;
     height: 3px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: linear-gradient(90deg,  #81dd17, #98ff23);
     border-radius: 10px;
 }
 
@@ -130,7 +130,7 @@
     left: -20px;
     opacity: 0;
     transition: all 0.3s ease;
-    color: #FF4C24;
+    color: #81dd17;
 }
 
 .footer-content-left ul li:hover,
@@ -196,7 +196,7 @@
 
 .footer-copyright::before {
     content: '© ';
-    color: #FF4C24;
+    color: #81dd17;
 }
 
 /* Scroll to top button - FIXED */
@@ -206,7 +206,7 @@
     right: 50px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: linear-gradient(135deg,  #81dd17, #98ff23);
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 5px 20px rgba(255, 76, 36, 0.4);
