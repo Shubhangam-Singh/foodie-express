@@ -1,20 +1,20 @@
 .navbar {
-    padding: 20px 0px;
+    padding: 20px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 0 0 20px 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .navbar:hover {
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .logo {
@@ -24,16 +24,18 @@
 }
 
 .navbar .logo:hover {
-    transform: scale(1.05) rotate(-2deg);
+    transform: scale(1.05);
 }
 
 .navbar-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
     color: #49557E;
     font-size: 18px;
     font-weight: 500;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-menu a {
@@ -66,7 +68,6 @@
 
 .navbar-menu a:hover {
     color: #FF4C24;
-    transform: translateY(-2px);
 }
 
 .navbar-menu .active {
@@ -77,21 +78,35 @@
 .navbar-right {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 35px;
 }
 
-.navbar-right img {
+.navbar-right > img {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.navbar-right img:hover {
-    transform: scale(1.1);
+.navbar-right > img:hover {
+    transform: scale(1.15);
 }
 
 .navbar-search-icon {
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-search-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-search-icon:hover img {
+    transform: scale(1.15);
 }
 
 .navbar-search-icon .dot {
@@ -100,8 +115,8 @@
     min-height: 10px;
     background-color: #FF4C24;
     border-radius: 50%;
-    top: -8px;
-    right: -8px;
+    top: -5px;
+    right: -5px;
     animation: pulse 2s infinite;
 }
 
@@ -121,7 +136,7 @@
     font-size: 16px;
     color: white;
     border: none;
-    padding: 12px 35px;
+    padding: 12px 32px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
@@ -129,6 +144,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .navbar-right button::before {
@@ -166,6 +182,7 @@
     border: 2px solid #FF4C24;
     padding: 2px;
     transition: all 0.3s ease;
+    object-fit: cover;
 }
 
 .navbar-profile:hover > img {
@@ -177,6 +194,7 @@
     position: absolute;
     display: none;
     right: 0;
+    top: 60px;
     z-index: 1;
     animation: slideDown 0.3s ease;
 }
@@ -203,6 +221,7 @@
 
 .navbar-profile-dropdown img {
     width: 20px;
+    height: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -222,7 +241,7 @@
     background: white;
     padding: 20px 25px;
     border-radius: 15px;
-    border: 1px solid #FF4C24;
+    border: 2px solid rgba(255, 76, 36, 0.2);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     list-style: none;
     min-width: 180px;
@@ -233,40 +252,51 @@
     height: 1px;
     border: none;
     margin: 5px 0;
+    width: 100%;
 }
 
 /* Responsive Styles */
 @media (max-width:1050px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+
     .navbar .logo {
         width: 140px;
     }
 
     .navbar-menu {
-        gap: 20px;
+        gap: 25px;
         font-size: 17px;
     }
 
     .navbar-right {
-        gap: 30px;
+        gap: 25px;
     }
 
-    .navbar-right img {
+    .navbar-right > img,
+    .navbar-search-icon img {
         width: 22px;
+        height: 22px;
     }
 
     .navbar-right button {
-        padding: 10px 30px;
+        padding: 10px 28px;
         font-size: 15px;
     }
 }
 
 @media (max-width:900px) {
+    .navbar {
+        padding: 16px 4%;
+    }
+
     .navbar .logo {
-        width: 120px;
+        width: 130px;
     }
 
     .navbar-menu {
-        gap: 15px;
+        gap: 20px;
         font-size: 16px;
     }
 
@@ -274,22 +304,32 @@
         gap: 20px;
     }
 
-    .navbar-right img {
+    .navbar-right > img,
+    .navbar-search-icon img {
         width: 20px;
+        height: 20px;
     }
 
     .navbar-right button {
         font-size: 14px;
-        padding: 8px 25px;
+        padding: 9px 24px;
+    }
+
+    .navbar-profile > img {
+        width: 36px;
+        height: 36px;
     }
 }
 
 @media (max-width:750px) {
     .navbar {
-        padding: 15px 10px;
-        border-radius: 0 0 15px 15px;
+        padding: 15px 3%;
     }
     
+    .navbar .logo {
+        width: 110px;
+    }
+
     .navbar-menu {
         display: none;
     }
@@ -300,6 +340,47 @@
 
     .navbar-right button {
         padding: 8px 20px;
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    .navbar-right > img,
+    .navbar-search-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbar-profile > img {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (max-width:500px) {
+    .navbar {
+        padding: 12px 2%;
+    }
+
+    .navbar .logo {
+        width: 100px;
+    }
+
+    .navbar-right {
+        gap: 12px;
+    }
+
+    .navbar-right button {
+        padding: 7px 16px;
+        font-size: 12px;
+    }
+
+    .navbar-right > img,
+    .navbar-search-icon img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .navbar-profile > img {
+        width: 32px;
+        height: 32px;
     }
 }

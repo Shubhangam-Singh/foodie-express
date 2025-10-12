@@ -27,41 +27,39 @@ const Navbar = ({ setShowLogin }) => {
           onClick={() => setMenu("home")} 
           className={menu === "home" ? "active" : ""}
         >
-          home
+          Home
         </Link>
         <a 
           href='#explore-menu' 
           onClick={() => setMenu("menu")} 
           className={menu === "menu" ? "active" : ""}
         >
-          menu
+          Menu
         </a>
         <a 
           href='#app-download' 
           onClick={() => setMenu("mob-app")} 
           className={menu === "mob-app" ? "active" : ""}
         >
-          mobile app
+          Mobile App
         </a>
         <a 
           href='#footer' 
           onClick={() => setMenu("contact")} 
           className={menu === "contact" ? "active" : ""}
         >
-          contact us
+          Contact Us
         </a>
       </ul>
 
       <div className="navbar-right">
-        <img src={assets.search_icon} alt="Search" />
-        
         <Link to='/cart' className='navbar-search-icon'>
           <img src={assets.basket_icon} alt="Cart" />
-          <div className={getTotalCartAmount() > 0 ? "dot" : ""}></div>
+          {getTotalCartAmount() > 0 && <div className="dot"></div>}
         </Link>
 
         {!token ? (
-          <button onClick={() => setShowLogin(true)}>sign in</button>
+          <button onClick={() => setShowLogin(true)}>Sign In</button>
         ) : (
           <div className='navbar-profile'>
             <img src={assets.profile_icon} alt="Profile" />
