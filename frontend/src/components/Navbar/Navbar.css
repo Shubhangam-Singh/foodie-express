@@ -3,23 +3,75 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 20px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
 }
 
 .navbar .logo {
     width: 150px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.05) rotate(-2deg);
 }
 
 .navbar-menu {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
     color: #49557E;
     font-size: 18px;
+    font-weight: 500;
+}
+
+.navbar-menu a {
+    cursor: pointer;
+    position: relative;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #49557E;
+}
+
+.navbar-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-menu a:hover::before,
+.navbar-menu a.active::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.navbar-menu a:hover {
+    color: #FF4C24;
+    transform: translateY(-2px);
 }
 
 .navbar-menu .active {
-    padding-bottom: 2px;
-    border-bottom: 2px solid #49557E;
+    color: #FF4C24;
+    font-weight: 600;
 }
 
 .navbar-right {
@@ -28,73 +80,162 @@
     gap: 40px;
 }
 
-.navbar-search-icon{
-position: relative;
+.navbar-right img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.navbar-search-icon .dot{
+.navbar-right img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-search-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-search-icon .dot {
     position: absolute;
     min-width: 10px;
     min-height: 10px;
     background-color: #FF4C24;
-    border-radius: 5px;
+    border-radius: 50%;
     top: -8px;
     right: -8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
 }
 
 .navbar-right button {
-    background: transparent;
+    background: linear-gradient(135deg, #FF4C24, #FF6B35);
     font-size: 16px;
-    color: #49557E;
-    border: 1px solid #FF4C24;
-    padding: 10px 30px;
+    color: white;
+    border: none;
+    padding: 12px 35px;
     border-radius: 50px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-right button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.navbar-right button:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .navbar-right button:hover {
-    background: #fff4f2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 76, 36, 0.4);
 }
 
-.navbar-profile{
+.navbar-profile {
     position: relative;
-
+    cursor: pointer;
 }
-.navbar-profile-dropdown{
+
+.navbar-profile > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #FF4C24;
+    padding: 2px;
+    transition: all 0.3s ease;
+}
+
+.navbar-profile:hover > img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
+}
+
+.navbar-profile-dropdown {
     position: absolute;
     display: none;
     right: 0;
     z-index: 1;
+    animation: slideDown 0.3s ease;
 }
-.navbar-profile-dropdown li{
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar-profile-dropdown li {
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    padding: 10px 0;
+    transition: all 0.3s ease;
 }
-.navbar-profile-dropdown img{
+
+.navbar-profile-dropdown img {
     width: 20px;
+    transition: transform 0.3s ease;
 }
-.navbar-profile-dropdown li:hover{
+
+.navbar-profile-dropdown li:hover {
     color: #FF4C24;
+    transform: translateX(5px);
 }
-.navbar-profile:hover .navbar-profile-dropdown{
+
+.navbar-profile-dropdown li:hover img {
+    transform: scale(1.2);
+}
+
+.navbar-profile:hover .navbar-profile-dropdown {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background-color: #fff2ef;
-    padding: 12px 25px;
-    border-radius: 4px;
-    border: 1px solid tomato;
-    outline: 2px solid white;
+    gap: 5px;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+    border: 1px solid #FF4C24;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     list-style: none;
+    min-width: 180px;
 }
-.navbar-profile hr{
-    background-color: gray;
+
+.navbar-profile hr {
+    background-color: #e0e0e0;
     height: 1px;
     border: none;
+    margin: 5px 0;
 }
+
+/* Responsive Styles */
 @media (max-width:1050px) {
     .navbar .logo {
         width: 140px;
@@ -114,7 +255,8 @@ position: relative;
     }
 
     .navbar-right button {
-        padding: 8px 25px;
+        padding: 10px 30px;
+        font-size: 15px;
     }
 }
 
@@ -137,13 +279,27 @@ position: relative;
     }
 
     .navbar-right button {
-        font-size: 15px;
-        padding: 7px 20px;
+        font-size: 14px;
+        padding: 8px 25px;
     }
 }
 
 @media (max-width:750px) {
+    .navbar {
+        padding: 15px 10px;
+        border-radius: 0 0 15px 15px;
+    }
+    
     .navbar-menu {
         display: none;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+
+    .navbar-right button {
+        padding: 8px 20px;
+        font-size: 14px;
     }
 }

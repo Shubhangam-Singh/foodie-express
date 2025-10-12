@@ -1,14 +1,204 @@
-.food-display{
-    margin-top: 30px;
+.food-display {
+    margin-top: 50px;
+    padding: 30px 0;
+    position: relative;
 }
-.food-display h2{
-    font-size: max(2vw,24px);
-    font-weight: 600;
+
+.food-display::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(255, 76, 36, 0.02) 0%, 
+        rgba(255, 107, 53, 0.03) 50%,
+        transparent 100%);
+    border-radius: 30px;
+    pointer-events: none;
+    z-index: -1;
 }
-.food-display-list{
+
+.food-display h2 {
+    font-size: max(2.2vw, 28px);
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.food-display h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    border-radius: 10px;
+    animation: expandWidth 0.8s ease-out 0.3s both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60px;
+    }
+}
+
+.food-display-subtitle {
+    font-size: max(1vw, 14px);
+    color: #676767;
+    margin-bottom: 30px;
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.food-display-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    margin-top: 30px;
-    gap: 30px;
-    row-gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 40px;
+    gap: 35px;
+    row-gap: 55px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.food-display-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #676767;
+    font-size: 18px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.food-display-empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.food-display-empty p {
+    margin-bottom: 10px;
+}
+
+/* Loading skeleton effect */
+.food-display-loading {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 35px;
+    row-gap: 55px;
+    margin-top: 40px;
+}
+
+.food-skeleton {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 20px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 30px;
+        row-gap: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .food-display {
+        margin-top: 40px;
+    }
+
+    .food-display h2 {
+        font-size: max(2.5vw, 24px);
+    }
+
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 25px;
+        row-gap: 45px;
+    }
+}
+
+@media (max-width: 750px) {
+    .food-display {
+        margin-top: 30px;
+        padding: 20px 0;
+    }
+
+    .food-display h2 {
+        font-size: 24px;
+    }
+
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        row-gap: 40px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+        row-gap: 35px;
+    }
+
+    .food-display h2 {
+        font-size: 20px;
+    }
+
+    .food-display h2::after {
+        width: 40px;
+        height: 3px;
+    }
 }

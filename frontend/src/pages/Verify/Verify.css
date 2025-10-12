@@ -1,18 +1,224 @@
-.verify{
-    min-height: 60vh;
-    display: grid;
+.verify {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease-out;
 }
-.verify .spinner{
-    width: 100px;
-    height: 100px;
-    place-self: center;
-    border: 5px solid #bdbdbd;
-    border-top-color: tomato;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.verify-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    padding: 50px 60px;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 76, 36, 0.1);
+}
+
+.verify .spinner {
+    width: 80px;
+    height: 80px;
+    border: 6px solid #f0f0f0;
+    border-top-color: #FF4C24;
+    border-right-color: #FF6B35;
     border-radius: 50%;
-    animation: rotate 1s infinite;
+    animation: rotate 1s linear infinite;
 }
+
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.verify-text {
+    text-align: center;
+}
+
+.verify-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.verify-text p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Loading dots animation */
+.loading-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.loading-dots span {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Success/Error states */
+.verify-success,
+.verify-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.verify-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.verify-success .verify-icon {
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+.verify-error .verify-icon {
+    background: linear-gradient(135deg, #F44336, #EF5350);
+    box-shadow: 0 10px 30px rgba(244, 67, 54, 0.3);
+}
+
+/* Shimmer effect */
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .verify {
+        min-height: 60vh;
+        padding: 30px 15px;
+    }
+
+    .verify-container {
+        padding: 40px 30px;
+    }
+
+    .verify .spinner {
+        width: 70px;
+        height: 70px;
+        border-width: 5px;
+    }
+
+    .verify-text h2 {
+        font-size: 24px;
+    }
+
+    .verify-text p {
+        font-size: 14px;
+    }
+
+    .verify-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .verify-container {
+        padding: 30px 20px;
+    }
+
+    .verify .spinner {
+        width: 60px;
+        height: 60px;
+        border-width: 4px;
+    }
+
+    .verify-text h2 {
+        font-size: 20px;
+    }
+
+    .verify-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
     }
 }
