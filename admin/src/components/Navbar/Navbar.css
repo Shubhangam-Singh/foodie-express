@@ -1,12 +1,201 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 4%;
+    padding: 15px 4%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 76, 36, 0.1);
+    transition: all 0.3s ease;
 }
-.navbar .logo{
-    width: max(10%,80px);
+
+.navbar:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
 }
-.navbar .profile{
-    width: 40px;
+
+.navbar .logo {
+    width: max(12%, 100px);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    filter: brightness(1.05);
+}
+
+.navbar .logo:hover {
+    transform: scale(1.05) translateY(-2px);
+}
+
+/* Admin Title/Badge */
+.navbar-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.admin-badge {
+    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Profile Section */
+.navbar-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.navbar .profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid #FF4C24;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.2);
+}
+
+.navbar .profile:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 25px rgba(255, 76, 36, 0.4);
+    border-color: #FF6B35;
+}
+
+/* Admin Name */
+.admin-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.admin-name span:first-child {
+    font-size: 16px;
+    color: #FF4C24;
+}
+
+.admin-name span:last-child {
+    font-size: 12px;
+    color: #999;
+    font-weight: 400;
+}
+
+/* Dropdown Menu */
+.profile-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 76, 36, 0.1);
+}
+
+.navbar-profile:hover .profile-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.profile-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-dropdown li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-dropdown li:hover {
+    background: rgba(255, 76, 36, 0.08);
+    color: #FF4C24;
+    transform: translateX(5px);
+}
+
+.profile-dropdown hr {
+    margin: 8px 0;
+    border: none;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 3%;
+    }
+
+    .navbar .logo {
+        width: max(15%, 80px);
+    }
+
+    .navbar-title {
+        display: none;
+    }
+
+    .admin-name {
+        display: none;
+    }
+
+    .navbar .profile {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 2%;
+    }
+
+    .navbar .logo {
+        width: 70px;
+    }
+
+    .admin-badge {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
 }

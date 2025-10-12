@@ -1,31 +1,336 @@
+/* Import Google Fonts - Outfit (Full Weight Range) */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-*{
+
+/* ===========================
+   CSS VARIABLES
+   =========================== */
+:root {
+  /* Primary Colors */
+  --primary-color: #FF4C24;
+  --primary-light: #FF6B35;
+  --primary-dark: #E63B14;
+  
+  /* Neutral Colors */
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #999999;
+  
+  /* Background Colors */
+  --bg-white: #FFFFFF;
+  --bg-light: #FCFCFC;
+  --bg-grey: #F8F9FA;
+  
+  /* Border Colors */
+  --border-light: #E0E0E0;
+  --border-medium: #A9A9A9;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition: 0.3s ease;
+}
+
+/* ===========================
+   GLOBAL RESET
+   =========================== */
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
-body{
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* ===========================
+   HTML & BODY
+   =========================== */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
   min-height: 100vh;
-  background-color: #FCFCFC;
+  background: linear-gradient(135deg, #FCFCFC 0%, #F5F5F5 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-a{
+
+/* ===========================
+   LINKS
+   =========================== */
+a {
   text-decoration: none;
   color: inherit;
+  transition: var(--transition);
 }
-hr{
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* ===========================
+   HORIZONTAL RULE
+   =========================== */
+hr {
   border: none;
   height: 1px;
-  background-color: #A9A9A9;
+  background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+  margin: 20px 0;
 }
-.app-content{
+
+/* ===========================
+   APP LAYOUT
+   =========================== */
+.app-content {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+.flex {
   display: flex;
 }
-.flex-col{
+
+.flex-col {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.cursor{
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cursor {
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.cursor:hover {
+  opacity: 0.8;
+}
+
+/* ===========================
+   SELECTION STYLING
+   =========================== */
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ===========================
+   SCROLLBAR STYLING
+   =========================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-grey);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+/* ===========================
+   FORM ELEMENTS
+   =========================== */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  outline: none;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   IMAGES
+   =========================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===========================
+   TOAST NOTIFICATIONS
+   =========================== */
+.Toastify__toast {
+  border-radius: 12px !important;
+  font-family: 'Outfit', sans-serif !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.Toastify__toast--success {
+  background: #4CAF50 !important;
+}
+
+.Toastify__toast--error {
+  background: #F44336 !important;
+}
+
+.Toastify__toast--warning {
+  background: #FFC107 !important;
+  color: #333 !important;
+}
+
+/* ===========================
+   ACCESSIBILITY
+   =========================== */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 1200px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+/* ===========================
+   REDUCED MOTION (ACCESSIBILITY)
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===========================
+   PRINT STYLES
+   =========================== */
+@media print {
+  body {
+    background: white;
+  }
+  
+  button,
+  .no-print {
+    display: none !important;
+  }
 }
