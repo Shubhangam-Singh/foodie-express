@@ -384,3 +384,25 @@
         height: 32px;
     }
 }
+
+
+.navbar .logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    object-position: left;
+}
+
+.navbar-right > img,
+.navbar-search-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.navbar-profile > img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+}

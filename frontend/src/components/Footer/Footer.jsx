@@ -18,8 +18,8 @@ const Footer = () => {
                 <div className="footer-content-left">
                     <img src={assets.logo} alt="Foodie Logo" />
                     <p>
-                        Delivering happiness to your doorstep. Fresh, delicious, 
-                        and fast - that's our promise to you. Order now and 
+                        Delivering happiness to your doorstep. Fresh, delicious 
+                        and fast - thats our promise to you. Order now and 
                         experience the best food delivery service in town!
                     </p>
                     <div className="footer-social-icons">
@@ -62,11 +62,11 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:contact@shsi.com" style={{ color: 'inherit', textDecoration: 'none' }}>
-                                ✉️ contact@shsi.com
+                            <a href="mailto:contact@shubSi.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                ✉️ contact@shubSi.com
                             </a>
                         </li>
-                        <li>📍 Delhi, India</li>
+                        <li>📍 Prayagraj, India</li>
                     </ul>
                 </div>
             </div>
