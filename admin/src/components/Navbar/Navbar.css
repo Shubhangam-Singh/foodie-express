@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 4%;
+    padding: 12px 4%;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: sticky;
@@ -17,21 +17,31 @@
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Logo Container */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
 .navbar .logo {
-    width: max(12%, 100px);
+    height: 50px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
     transition: transform 0.3s ease;
     cursor: pointer;
-    filter: brightness(1.05);
 }
 
 .navbar .logo:hover {
-    transform: scale(1.05) translateY(-2px);
+    transform: scale(1.05);
 }
 
 /* Admin Title/Badge */
 .navbar-title {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex: 1;
     gap: 12px;
     font-size: 20px;
     font-weight: 700;
@@ -41,13 +51,14 @@
 .admin-badge {
     background: linear-gradient(135deg, #FF4C24, #FF6B35);
     color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
     animation: fadeIn 0.5s ease-out;
+    white-space: nowrap;
 }
 
 @keyframes fadeIn {
@@ -162,13 +173,34 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .navbar {
         padding: 12px 3%;
     }
 
     .navbar .logo {
-        width: max(15%, 80px);
+        height: 45px;
+        max-width: 150px;
+    }
+
+    .navbar-title {
+        font-size: 18px;
+    }
+
+    .admin-badge {
+        padding: 6px 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 3%;
+    }
+
+    .navbar .logo {
+        height: 40px;
+        max-width: 120px;
     }
 
     .navbar-title {
@@ -191,11 +223,12 @@
     }
 
     .navbar .logo {
-        width: 70px;
+        height: 35px;
+        max-width: 100px;
     }
 
-    .admin-badge {
-        padding: 4px 12px;
-        font-size: 12px;
+    .navbar .profile {
+        width: 36px;
+        height: 36px;
     }
 }

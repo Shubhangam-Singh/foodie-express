@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 
 const Navbar = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-
   const handleLogout = () => {
-    // Add logout logic here
     console.log('Logout clicked');
   };
 
@@ -14,7 +11,7 @@ const Navbar = () => {
     <div className='navbar'>
       {/* Logo Section */}
       <div className="navbar-left">
-        <img className='logo' src={assets.logo} alt="Foodie Logo" />
+        <img className='logo' src={assets.logo} alt="Admin Logo" />
       </div>
 
       {/* Title/Badge Section */}
@@ -33,26 +30,18 @@ const Navbar = () => {
           className='profile' 
           src={assets.profile_image} 
           alt="Admin Profile"
-          onClick={() => setShowDropdown(!showDropdown)}
         />
 
-        {/* Dropdown Menu */}
-        {showDropdown && (
-          <div className="profile-dropdown">
-            <ul>
-              <li onClick={() => console.log('Profile clicked')}>
-                👤 Profile
-              </li>
-              <li onClick={() => console.log('Settings clicked')}>
-                ⚙️ Settings
-              </li>
-              <hr />
-              <li onClick={handleLogout} style={{ color: '#FF4C24' }}>
-                🚪 Logout
-              </li>
-            </ul>
-          </div>
-        )}
+        <div className="profile-dropdown">
+          <ul>
+            <li>👤 Profile</li>
+            <li>⚙️ Settings</li>
+            <hr />
+            <li onClick={handleLogout} style={{ color: '#FF4C24' }}>
+              🚪 Logout
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   )
