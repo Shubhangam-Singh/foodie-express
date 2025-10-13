@@ -35,7 +35,7 @@
     left: 0;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: linear-gradient(90deg, #7d03c4, #ca1dff);
     border-radius: 10px;
 }
 
@@ -66,7 +66,7 @@
 .order-stat-card p {
     font-size: 28px;
     font-weight: 700;
-    color: #FF4C24;
+    color: #7d03c4;
 }
 
 /* Order List Container */
@@ -107,7 +107,7 @@
 .order-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-    border-color: #FF4C24;
+    border-color: #7d03c4;
 }
 
 /* Parcel Icon */
@@ -132,7 +132,7 @@
 
 .order-item-name {
     font-weight: 700;
-    color: #FF4C24;
+    color: #7d03c4;
     margin-top: 15px;
     margin-bottom: 8px;
     font-size: 16px;
@@ -165,7 +165,7 @@
     padding: 10px 15px;
     border-radius: 10px;
     font-weight: 600;
-    color: #FF4C24;
+    color: #7d03c4;
     text-align: center;
 }
 
@@ -197,12 +197,12 @@
 }
 
 .order-item select:focus {
-    border-color: #FF4C24;
+    border-color: #7d03c4;
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
 }
 
 .order-item select:hover {
-    border-color: #FF6B35;
+    border-color: #bb50fa;
 }
 
 /* Status-specific colors */
@@ -261,7 +261,7 @@
     width: 50px;
     height: 50px;
     border: 5px solid #f0f0f0;
-    border-top-color: #FF4C24;
+    border-top-color: #7d03c4;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }

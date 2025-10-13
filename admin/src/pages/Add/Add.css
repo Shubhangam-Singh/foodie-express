@@ -41,7 +41,7 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: linear-gradient(90deg, #7d03c4, #ca1dff);
     border-radius: 10px;
 }
 
@@ -93,14 +93,14 @@
 }
 
 .add-img-upload label:hover img {
-    border-color: #FF4C24;
+    border-color: #7d03c4;
     transform: scale(1.05);
     box-shadow: 0 8px 25px rgba(255, 76, 36, 0.2);
 }
 
 .add-img-upload img[src*="blob"] {
     border-style: solid;
-    border-color: #FF4C24;
+    border-color: #7d03c4;
 }
 
 /* Form Fields */
@@ -137,7 +137,7 @@
 .add-product-name input:focus,
 .add-product-description textarea:focus {
     outline: none;
-    border-color: #FF4C24;
+    border-color: #7d03c4;
     background: white;
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
     transform: translateY(-2px);
@@ -180,14 +180,14 @@
 .add-category select:focus,
 .add-price input:focus {
     outline: none;
-    border-color: #FF4C24;
+    border-color: #7d03c4;
     background: white;
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
 }
 
 .add-category select:hover,
 .add-price input:hover {
-    border-color: #FF6B35;
+    border-color: #7b19b4;
 }
 
 /* Submit Button */
@@ -195,7 +195,7 @@
     max-width: 200px;
     border: none;
     padding: 16px 40px;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: linear-gradient(135deg, #7d03c4, #ca1dff);
     color: white;
     cursor: pointer;
     font-size: 16px;

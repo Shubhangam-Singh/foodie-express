@@ -44,7 +44,7 @@
     top: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, #FF4C24, #FF6B35);
+    background: linear-gradient(180deg, #7d03c4, #ca1dff);
     transform: scaleY(0);
     transition: transform 0.3s ease;
 }
@@ -79,8 +79,8 @@
 /* Active state */
 .sidebar-option.active {
     background: linear-gradient(135deg, rgba(255, 76, 36, 0.1), rgba(255, 107, 53, 0.1));
-    border-color: #FF4C24;
-    color: #FF4C24;
+    border-color: #7d03c4;
+    color: #7d03c4;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
     transform: translateX(8px);
@@ -138,7 +138,7 @@
 
 .stat-item span:last-child {
     font-weight: 700;
-    color: #FF4C24;
+    color: #7d03c4;
 }
 
 /* Responsive Design */
@@ -226,3 +226,4 @@
         opacity: 1;
     }
 }
+
