@@ -178,7 +178,6 @@
 ┃
 ┗ 📜 README.md                   # Project documentation
 ```
-```
 ---
 
 ## 🚀 Quick Start
