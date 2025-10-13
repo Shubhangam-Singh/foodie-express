@@ -115,71 +115,70 @@
 
 ## 📁 Project Structure
 
-foodie-express/
-│
-├── frontend/ # React Customer App
-│ ├── public/ # Static assets
-│ ├── src/
-│ │ ├── components/ # Reusable components
-│ │ │ ├── Navbar/
-│ │ │ ├── Header/
-│ │ │ ├── ExploreMenu/
-│ │ │ ├── FoodDisplay/
-│ │ │ ├── FoodItem/
-│ │ │ ├── Footer/
-│ │ │ └── LoginPopup/
-│ │ ├── pages/ # Page components
-│ │ │ ├── Home/
-│ │ │ ├── Cart/
-│ │ │ ├── PlaceOrder/
-│ │ │ ├── MyOrders/
-│ │ │ └── Verify/
-│ │ ├── Context/ # State management
-│ │ ├── assets/ # Images & icons
-│ │ ├── App.jsx # Main app
-│ │ └── index.css # Global styles
-│ └── package.json
-│
-├── admin/ # React Admin Panel
-│ ├── src/
-│ │ ├── components/ # Admin components
-│ │ │ ├── Navbar/
-│ │ │ └── Sidebar/
-│ │ ├── pages/ # Admin pages
-│ │ │ ├── Add/
-│ │ │ ├── List/
-│ │ │ └── Orders/
-│ │ ├── assets/ # Admin assets
-│ │ ├── App.jsx
-│ │ └── index.css
-│ └── package.json
-│
-├── backend/ # Node.js API
-│ ├── config/ # Database config
-│ ├── controllers/ # Business logic
-│ │ ├── userController.js
-│ │ ├── foodController.js
-│ │ ├── cartController.js
-│ │ └── orderController.js
-│ ├── middleware/ # Custom middleware
-│ │ └── auth.js
-│ ├── models/ # Mongoose schemas
-│ │ ├── userModel.js
-│ │ ├── foodModel.js
-│ │ └── orderModel.js
-│ ├── routes/ # API routes
-│ │ ├── userRoute.js
-│ │ ├── foodRoute.js
-│ │ ├── cartRoute.js
-│ │ └── orderRoute.js
-│ ├── uploads/ # Uploaded images
-│ ├── server.js # Entry point
-│ └── package.json
-│
-└── README.md # You are here!
-
-text
-
+```
+📦 foodie-express
+┣ 📂 frontend                    # React Customer Application
+┃ ┣ 📂 public                   # Static assets
+┃ ┣ 📂 src
+┃ ┃ ┣ 📂 components             # Reusable UI components
+┃ ┃ ┃ ┣ 📂 Navbar               # Navigation bar
+┃ ┃ ┃ ┣ 📂 Header               # Hero section
+┃ ┃ ┃ ┣ 📂 ExploreMenu          # Food categories
+┃ ┃ ┃ ┣ 📂 FoodDisplay          # Food items grid
+┃ ┃ ┃ ┣ 📂 FoodItem             # Individual food card
+┃ ┃ ┃ ┣ 📂 Footer               # Footer section
+┃ ┃ ┃ ┗ 📂 LoginPopup           # Authentication modal
+┃ ┃ ┣ 📂 pages                  # Page components
+┃ ┃ ┃ ┣ 📂 Home                 # Homepage
+┃ ┃ ┃ ┣ 📂 Cart                 # Shopping cart
+┃ ┃ ┃ ┣ 📂 PlaceOrder           # Checkout page
+┃ ┃ ┃ ┣ 📂 MyOrders             # Order history
+┃ ┃ ┃ ┗ 📂 Verify               # Payment verification
+┃ ┃ ┣ 📂 Context                # React Context API
+┃ ┃ ┣ 📂 assets                 # Images & icons
+┃ ┃ ┣ 📜 App.jsx                # Root component
+┃ ┃ ┗ 📜 index.css              # Global styles
+┃ ┗ 📜 package.json
+┃
+┣ 📂 admin                       # React Admin Dashboard
+┃ ┣ 📂 src
+┃ ┃ ┣ 📂 components             # Admin components
+┃ ┃ ┃ ┣ 📂 Navbar               # Admin navigation
+┃ ┃ ┃ ┗ 📂 Sidebar              # Admin sidebar
+┃ ┃ ┣ 📂 pages                  # Admin pages
+┃ ┃ ┃ ┣ 📂 Add                  # Add food items
+┃ ┃ ┃ ┣ 📂 List                 # List all items
+┃ ┃ ┃ ┗ 📂 Orders               # Manage orders
+┃ ┃ ┣ 📂 assets                 # Admin assets
+┃ ┃ ┣ 📜 App.jsx                # Admin root
+┃ ┃ ┗ 📜 index.css              # Admin styles
+┃ ┗ 📜 package.json
+┃
+┣ 📂 backend                     # Node.js Express API
+┃ ┣ 📂 config                   # Configuration files
+┃ ┣ 📂 controllers              # Business logic
+┃ ┃ ┣ 📜 userController.js      # User operations
+┃ ┃ ┣ 📜 foodController.js      # Food CRUD
+┃ ┃ ┣ 📜 cartController.js      # Cart operations
+┃ ┃ ┗ 📜 orderController.js     # Order management
+┃ ┣ 📂 middleware               # Custom middleware
+┃ ┃ ┗ 📜 auth.js                # JWT authentication
+┃ ┣ 📂 models                   # Mongoose schemas
+┃ ┃ ┣ 📜 userModel.js           # User schema
+┃ ┃ ┣ 📜 foodModel.js           # Food schema
+┃ ┃ ┗ 📜 orderModel.js          # Order schema
+┃ ┣ 📂 routes                   # API routes
+┃ ┃ ┣ 📜 userRoute.js           # User endpoints
+┃ ┃ ┣ 📜 foodRoute.js           # Food endpoints
+┃ ┃ ┣ 📜 cartRoute.js           # Cart endpoints
+┃ ┃ ┗ 📜 orderRoute.js          # Order endpoints
+┃ ┣ 📂 uploads                  # Uploaded images
+┃ ┣ 📜 server.js                # Server entry point
+┃ ┗ 📜 package.json
+┃
+┗ 📜 README.md                   # Project documentation
+```
+```
 ---
 
 ## 🚀 Quick Start
@@ -198,8 +197,6 @@ text
 git clone https://github.com/Shubhangam-Singh/foodie-express.git
 cd foodie-express
 
-text
-
 #### 2️⃣ Backend Setup
 
 cd backend
@@ -211,8 +208,6 @@ cp .env.example .env
 Edit .env with your credentials
 Start server
 npm start
-
-text
 
 Backend runs on `http://localhost:4000`
 
@@ -228,8 +223,6 @@ Edit .env with your API URL
 Start dev server
 npm run dev
 
-text
-
 Frontend runs on `http://localhost:5173`
 
 #### 4️⃣ Admin Panel Setup
@@ -243,8 +236,6 @@ cp .env.example .env
 Edit .env with your API URL
 Start dev server
 npm run dev
-
-text
 
 Admin panel runs on `http://localhost:3000`
 
@@ -271,8 +262,6 @@ CORS Origins
 FRONTEND_URL=http://localhost:5173
 ADMIN_URL=http://localhost:3000
 
-text
-
 ### Frontend `.env`
 
 API Configuration
@@ -281,14 +270,10 @@ VITE_API_URL=http://localhost:4000
 Stripe Publishable Key
 VITE_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key
 
-text
-
 ### Admin `.env`
 
 API Configuration
 VITE_API_URL=http://localhost:4000
-
-text
 
 ---
 
@@ -388,15 +373,12 @@ Contributions are welcome! Please follow these steps:
 2. Create your feature branch
 git checkout -b feature/AmazingFeature
 
-text
 3. Commit your changes
 git commit -m 'Add some AmazingFeature'
 
-text
 4. Push to the branch
 git push origin feature/AmazingFeature
 
-text
 5. Open a Pull Request
 
 ---
