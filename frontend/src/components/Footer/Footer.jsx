@@ -16,7 +16,7 @@ const Footer = () => {
 
             <div className="footer-content">
                 <div className="footer-content-left">
-                    <img src={assets.logo} alt="Foodie Logo" />
+                    <img src={assets.logo_f} alt="Foodie Logo" />
                     <p>
                         Delivering happiness to your doorstep. Fresh, delicious 
                         and fast - thats our promise to you. Order now and 
@@ -81,3 +81,4 @@ const Footer = () => {
 }
 
 export default Footer
+
