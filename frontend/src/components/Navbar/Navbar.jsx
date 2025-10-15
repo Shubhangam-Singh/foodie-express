@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,13 +6,35 @@ import { StoreContext } from '../../Context/StoreContext'
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
+  const profileRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfileMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
+    setShowProfileMenu(false);
     navigate('/');
+  }
+
+  const handleOrdersClick = () => {
+    setShowProfileMenu(false);
+    navigate('/myorders');
   }
 
   return (
@@ -61,19 +83,25 @@ const Navbar = ({ setShowLogin }) => {
         {!token ? (
           <button onClick={() => setShowLogin(true)}>Sign In</button>
         ) : (
-          <div className='navbar-profile'>
-            <img src={assets.profile_icon} alt="Profile" />
-            <ul className='navbar-profile-dropdown'>
-              <li onClick={() => navigate('/myorders')}>
-                <img src={assets.bag_icon} alt="Orders" />
-                <p>Orders</p>
-              </li>
-              <hr />
-              <li onClick={logout}>
-                <img src={assets.logout_icon} alt="Logout" />
-                <p>Logout</p>
-              </li>
-            </ul>
+          <div className='navbar-profile' ref={profileRef}>
+            <img 
+              src={assets.profile_icon} 
+              alt="Profile" 
+              onClick={() => setShowProfileMenu(!showProfileMenu)}
+            />
+            {showProfileMenu && (
+              <ul className='navbar-profile-dropdown'>
+                <li onClick={handleOrdersClick}>
+                  <img src={assets.bag_icon} alt="Orders" />
+                  <p>Orders</p>
+                </li>
+                <hr />
+                <li onClick={logout}>
+                  <img src={assets.logout_icon} alt="Logout" />
+                  <p>Logout</p>
+                </li>
+              </ul>
+            )}
           </div>
         )}
       </div>

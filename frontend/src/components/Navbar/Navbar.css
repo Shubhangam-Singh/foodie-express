@@ -19,6 +19,9 @@
 
 .navbar .logo {
     width: 150px;
+    height: auto;
+    object-fit: contain;
+    object-position: left;
     transition: transform 0.3s ease;
     cursor: pointer;
 }
@@ -84,6 +87,7 @@
 .navbar-right > img {
     width: 24px;
     height: 24px;
+    object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -102,6 +106,7 @@
 .navbar-search-icon img {
     width: 24px;
     height: 24px;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -140,7 +145,7 @@
     border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
+    box-shadow: 0 4px 15px rgba(128, 196, 3, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -167,7 +172,7 @@
 
 .navbar-right button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 76, 36, 0.4);
+    box-shadow: 0 6px 25px rgba(128, 196, 3, 0.4);
 }
 
 .navbar-profile {
@@ -178,24 +183,35 @@
 .navbar-profile > img {
     width: 40px;
     height: 40px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 50%;
     border: 2px solid #80c403;
     padding: 2px;
     transition: all 0.3s ease;
-    object-fit: cover;
 }
 
-.navbar-profile:hover > img {
+.navbar-profile > img:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
+    box-shadow: 0 4px 15px rgba(128, 196, 3, 0.3);
 }
 
+/* FIXED: Dropdown now controlled by JavaScript, not CSS hover */
 .navbar-profile-dropdown {
     position: absolute;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     right: 0;
     top: 60px;
-    z-index: 1;
+    z-index: 1001;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+    border: 2px solid rgba(128, 196, 3, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    min-width: 180px;
     animation: slideDown 0.3s ease;
 }
 
@@ -232,19 +248,6 @@
 
 .navbar-profile-dropdown li:hover img {
     transform: scale(1.2);
-}
-
-.navbar-profile:hover .navbar-profile-dropdown {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background: white;
-    padding: 20px 25px;
-    border-radius: 15px;
-    border: 2px solid rgba(255, 76, 36, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    list-style: none;
-    min-width: 180px;
 }
 
 .navbar-profile hr {
@@ -383,26 +386,4 @@
         width: 32px;
         height: 32px;
     }
-}
-
-
-.navbar .logo {
-    width: 150px;
-    height: auto;
-    object-fit: contain;
-    object-position: left;
-}
-
-.navbar-right > img,
-.navbar-search-icon img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
-
-.navbar-profile > img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    object-position: center;
 }
