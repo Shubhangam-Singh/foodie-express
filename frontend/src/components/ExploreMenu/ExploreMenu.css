@@ -310,3 +310,25 @@
         font-size: 12px;
     }
 }
+
+
+.explore-menu h1 {
+    color: var(--text-primary);
+}
+
+.explore-menu-text {
+    color: var(--text-tertiary);
+}
+
+.explore-menu-list-item p {
+    color: var(--text-secondary);
+}
+
+.explore-menu hr {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border-color),
+        transparent
+    );
+}

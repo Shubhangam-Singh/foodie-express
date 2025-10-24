@@ -15,6 +15,9 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import MyOrders from './pages/MyOrders/MyOrders'
 import Verify from './pages/Verify/Verify'
 
+// Theme Provider
+import { ThemeProvider } from './Context/ThemeContext'
+
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const location = useLocation();
@@ -43,7 +46,7 @@ const App = () => {
   }, [showLogin]);
 
   return (
-    <>
+    <ThemeProvider>
       {/* Toast Notifications */}
       <ToastContainer
         position="top-right"
@@ -75,7 +78,7 @@ const App = () => {
           <Route path='/myorders' element={<MyOrders />} />
           <Route path='/verify' element={<Verify />} />
           
-          {/* 404 Not Found Route (Optional) */}
+          {/* 404 Not Found Route */}
           <Route path='*' element={
             <div style={{
               minHeight: '60vh',
@@ -86,16 +89,16 @@ const App = () => {
               textAlign: 'center',
               padding: '40px 20px'
             }}>
-              <h1 style={{ fontSize: '72px', marginBottom: '20px' }}>404</h1>
-              <h2 style={{ marginBottom: '10px' }}>Page Not Found</h2>
-              <p style={{ color: '#666', marginBottom: '30px' }}>
+              <h1 style={{ fontSize: '72px', marginBottom: '20px', color: 'var(--text-primary)' }}>404</h1>
+              <h2 style={{ marginBottom: '10px', color: 'var(--text-primary)' }}>Page Not Found</h2>
+              <p style={{ color: 'var(--text-tertiary)', marginBottom: '30px' }}>
                 The page you're looking for doesn't exist.
               </p>
               <button
                 onClick={() => window.location.href = '/'}
                 style={{
                   padding: '12px 30px',
-                  background: 'linear-gradient(135deg, #FF4C24, #FF6B35)',
+                  background: 'linear-gradient(135deg, #80c403, #c8ff00)',
                   color: 'white',
                   border: 'none',
                   borderRadius: '50px',
@@ -113,7 +116,7 @@ const App = () => {
 
       {/* Footer */}
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }
 

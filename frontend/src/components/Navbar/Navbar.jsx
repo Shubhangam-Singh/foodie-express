@@ -3,6 +3,7 @@ import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../Context/StoreContext'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
@@ -75,11 +76,16 @@ const Navbar = ({ setShowLogin }) => {
       </ul>
 
       <div className="navbar-right">
+        {/* Theme Toggle Button */}
+        <ThemeToggle />
+
+        {/* Cart Icon */}
         <Link to='/cart' className='navbar-search-icon'>
           <img src={assets.basket_icon} alt="Cart" />
           {getTotalCartAmount() > 0 && <div className="dot"></div>}
         </Link>
 
+        {/* Sign In / Profile */}
         {!token ? (
           <button onClick={() => setShowLogin(true)}>Sign In</button>
         ) : (
