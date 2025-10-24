@@ -202,3 +202,26 @@
         height: 3px;
     }
 }
+
+.food-display-list {
+    display: grid;
+    /* ... your grid styles */
+}
+
+.food-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.food-item:hover {
+    box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.food-item-info h2 {
+    color: var(--text-primary);
+}
+
+.food-item-info p {
+    color: var(--text-secondary);
+}
