@@ -1,32 +1,377 @@
+/* ========================================
+   ULTRA PREMIUM THEME TOGGLE
+   Stunning Animations & Effects
+   ======================================== */
+
 .theme-toggle {
-  width: 45px;
-  height: 45px;
+  position: relative;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(135deg, #80c403, #c8ff00);
-  font-size: 22px;
+  background: transparent;
+  font-size: 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(128, 196, 3, 0.3);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 0;
+  z-index: 1;
 }
+
+/* Main button background with gradient */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #80c403, #c8ff00);
+  border: 2px solid rgba(128, 196, 3, 0.4);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 
+    0 4px 20px rgba(128, 196, 3, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode background */
+[data-theme="dark"] .theme-toggle::before {
+  background: linear-gradient(135deg, #1a1f35, #2d3748);
+  border: 2px solid rgba(200, 255, 0, 0.5);
+  box-shadow: 
+    0 4px 20px rgba(200, 255, 0, 0.3),
+    inset 0 2px 4px rgba(200, 255, 0, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   ANIMATED GRADIENT RINGS
+   ======================================== */
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ring-1 {
+  inset: -8px;
+  border-color: rgba(128, 196, 3, 0.6);
+  animation: ringPulse 2s ease-in-out infinite;
+}
+
+.ring-2 {
+  inset: -14px;
+  border-color: rgba(128, 196, 3, 0.4);
+  animation: ringPulse 2s ease-in-out 0.3s infinite;
+}
+
+.ring-3 {
+  inset: -20px;
+  border-color: rgba(128, 196, 3, 0.2);
+  animation: ringPulse 2s ease-in-out 0.6s infinite;
+}
+
+[data-theme="dark"] .ring-1 {
+  border-color: rgba(200, 255, 0, 0.6);
+}
+
+[data-theme="dark"] .ring-2 {
+  border-color: rgba(200, 255, 0, 0.4);
+}
+
+[data-theme="dark"] .ring-3 {
+  border-color: rgba(200, 255, 0, 0.2);
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Show rings on hover */
+.theme-toggle:hover .ring {
+  opacity: 1;
+}
+
+/* ========================================
+   SPARKLE PARTICLES
+   ======================================== */
+
+.sparkle {
+  position: absolute;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sparkle-1 {
+  top: -5px;
+  right: 5px;
+}
+
+.sparkle-2 {
+  bottom: -5px;
+  left: 5px;
+}
+
+.sparkle-3 {
+  top: 5px;
+  left: -5px;
+}
+
+/* Sparkles appear on hover */
+.theme-toggle:hover .sparkle {
+  opacity: 1;
+  transform: scale(1);
+  animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-3px) rotate(10deg) scale(1.2);
+  }
+  50% {
+    transform: translateY(0) rotate(-10deg) scale(1);
+  }
+  75% {
+    transform: translateY(3px) rotate(5deg) scale(1.1);
+  }
+}
+
+/* ========================================
+   ICON ANIMATIONS
+   ======================================== */
+
+.theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Smooth rotation with bounce */
+.theme-icon.rotate {
+  animation: iconRotate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes iconRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Continuous gentle float */
+.theme-icon {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
 
 .theme-toggle:hover {
-  transform: scale(1.1) rotate(10deg);
-  box-shadow: 0 6px 20px rgba(128, 196, 3, 0.45);
+  transform: scale(1.15) rotate(15deg);
 }
 
-.theme-toggle:active {
+.theme-toggle:hover::before {
+  box-shadow: 
+    0 8px 30px rgba(128, 196, 3, 0.5),
+    0 0 40px rgba(128, 196, 3, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .theme-toggle:hover::before {
+  box-shadow: 
+    0 8px 30px rgba(200, 255, 0, 0.5),
+    0 0 40px rgba(200, 255, 0, 0.3),
+    inset 0 2px 4px rgba(200, 255, 0, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   CLICK EFFECT
+   ======================================== */
+
+.theme-toggle.clicking::before {
   transform: scale(0.95);
+  box-shadow: 
+    0 2px 10px rgba(128, 196, 3, 0.4),
+    inset 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="dark"] .theme-toggle {
-  background: linear-gradient(135deg, #2d3748, #4a5568);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+/* Burst effect on click */
+.theme-toggle.clicking::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(128, 196, 3, 0.4) 0%,
+    transparent 70%
+  );
+  animation: burstEffect 0.6s ease-out;
+  pointer-events: none;
 }
 
-[data-theme="dark"] .theme-toggle:hover {
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+[data-theme="dark"] .theme-toggle.clicking::after {
+  background: radial-gradient(
+    circle,
+    rgba(200, 255, 0, 0.4) 0%,
+    transparent 70%
+  );
+}
+
+@keyframes burstEffect {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   GLOW EFFECT
+   ======================================== */
+
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #80c403, #c8ff00);
+  opacity: 0;
+  z-index: -1;
+  filter: blur(15px);
+  transition: opacity 0.4s ease;
+}
+
+.theme-toggle:hover::after {
+  opacity: 0.6;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  background: linear-gradient(135deg, #c8ff00, #80c403);
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 900px) {
+  .theme-toggle {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+  
+  .sparkle {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 750px) {
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    font-size: 19px;
+  }
+  
+  .sparkle {
+    font-size: 9px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-icon,
+  .ring,
+  .sparkle,
+  .theme-toggle::before,
+  .theme-toggle::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .theme-icon.rotate {
+    transform: none !important;
+  }
+}
+
+/* Focus state for keyboard navigation */
+.theme-toggle:focus-visible {
+  outline: 3px solid rgba(128, 196, 3, 0.5);
+  outline-offset: 4px;
+}
+
+[data-theme="dark"] .theme-toggle:focus-visible {
+  outline: 3px solid rgba(200, 255, 0, 0.5);
 }
