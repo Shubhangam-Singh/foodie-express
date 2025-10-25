@@ -2,17 +2,18 @@ import React from 'react'
 import './Sidebar.css'
 import { assets } from '../../assets/assets'
 import { NavLink } from 'react-router-dom'
+import { useTheme } from '../../context/ThemeContext'
 
 const Sidebar = () => {
+  const { darkMode } = useTheme();
+
   return (
-    <div className='sidebar'>
-      {/* Sidebar Header */}
+    <div className={`sidebar ${darkMode ? 'dark-mode' : ''}`}>
       <div className="sidebar-header">
         <h3>Dashboard</h3>
         <p>Manage your restaurant</p>
       </div>
 
-      {/* Sidebar Navigation Options */}
       <div className="sidebar-options">
         <NavLink 
           to='/add' 
@@ -42,7 +43,6 @@ const Sidebar = () => {
         </NavLink>
       </div>
 
-      {/* Quick Stats (Optional) */}
       <div className="sidebar-stats">
         <div className="stat-item">
           <span>Total Items</span>

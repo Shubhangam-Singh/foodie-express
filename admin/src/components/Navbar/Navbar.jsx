@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
+import { useTheme } from '../../context/ThemeContext'
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useTheme();
   const [iconRotate, setIconRotate] = useState(false);
 
-  // Load dark mode preference from localStorage on mount
-  useEffect(() => {
-    const savedMode = localStorage.getItem('adminDarkMode');
-    if (savedMode === 'true') {
-      setDarkMode(true);
-    }
-  }, []);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => {
+  const handleToggle = () => {
     setIconRotate(true);
     setTimeout(() => setIconRotate(false), 500);
-    
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem('adminDarkMode', newMode);
+    toggleDarkMode();
   };
 
   const handleLogout = () => {
@@ -30,17 +19,14 @@ const Navbar = () => {
 
   return (
     <div className={`navbar ${darkMode ? 'dark-mode' : ''}`}>
-      {/* Logo Section */}
       <div className="navbar-left">
         <img className='logo' src={assets.logo} alt="Admin Logo" />
       </div>
 
-      {/* Title/Badge Section */}
       <div className="navbar-title">
         <span className="admin-badge">ADMIN PANEL</span>
       </div>
 
-      {/* Profile Section */}
       <div className="navbar-profile">
         <div className="admin-name">
           <span>Admin</span>
@@ -53,10 +39,9 @@ const Navbar = () => {
           alt="Admin Profile"
         />
 
-        {/* Dark Mode Toggle Button */}
         <button 
           className="theme-toggle" 
-          onClick={toggleDarkMode}
+          onClick={handleToggle}
           aria-label="Toggle dark mode"
           title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
         >
@@ -70,10 +55,7 @@ const Navbar = () => {
             <li>👤 Profile</li>
             <li>⚙️ Settings</li>
             <hr />
-            <li 
-              onClick={handleLogout} 
-              className="logout-item"
-            >
+            <li onClick={handleLogout} className="logout-item">
               🚪 Logout
             </li>
           </ul>

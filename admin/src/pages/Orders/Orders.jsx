@@ -3,8 +3,10 @@ import './Orders.css'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { assets, url, currency } from '../../assets/assets';
+import { useTheme } from '../../context/ThemeContext';
 
 const Order = () => {
+  const { darkMode } = useTheme();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -55,7 +57,7 @@ const Order = () => {
   const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
 
   return (
-    <div className='order add'>
+    <div className={`order add ${darkMode ? 'dark-mode' : ''}`}>
       <h3>Order Management</h3>
 
       {/* Order Stats */}
@@ -67,11 +69,11 @@ const Order = () => {
           </div>
           <div className="order-stat-card">
             <h4>Processing</h4>
-            <p style={{ color: '#FFC107' }}>{processingOrders}</p>
+            <p style={{ color: darkMode ? '#FFB300' : '#FFC107' }}>{processingOrders}</p>
           </div>
           <div className="order-stat-card">
             <h4>Delivered</h4>
-            <p style={{ color: '#4CAF50' }}>{deliveredOrders}</p>
+            <p style={{ color: darkMode ? '#66BB6A' : '#4CAF50' }}>{deliveredOrders}</p>
           </div>
           <div className="order-stat-card">
             <h4>Total Revenue</h4>

@@ -4,8 +4,10 @@ import { url, currency } from '../../assets/assets'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 
 const List = () => {
+  const { darkMode } = useTheme();
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -59,7 +61,7 @@ const List = () => {
   const totalCategories = [...new Set(list.map(item => item.category))].length;
 
   return (
-    <div className='list add flex-col'>
+    <div className={`list add flex-col ${darkMode ? 'dark-mode' : ''}`}>
       <p>All Food Items</p>
 
       {/* Stats Bar */}
@@ -75,7 +77,7 @@ const List = () => {
           </div>
           <div className="list-stats-item">
             <span>Status</span>
-            <span style={{ fontSize: '16px', color: '#4CAF50' }}>● Active</span>
+            <span style={{ fontSize: '16px', color: darkMode ? '#81c784' : '#4CAF50' }}>● Active</span>
           </div>
         </div>
       )}

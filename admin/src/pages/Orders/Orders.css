@@ -26,6 +26,12 @@
     margin-bottom: 35px;
     position: relative;
     display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order h3 {
+    color: #f5f5f5;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .order h3::after {
@@ -37,6 +43,13 @@
     height: 4px;
     background: linear-gradient(90deg, #7d03c4, #ca1dff);
     border-radius: 10px;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 8px rgba(125, 3, 196, 0.4);
+}
+
+.dark-mode .order h3::after {
+    background: linear-gradient(90deg, #9333ea, #a855f7);
+    box-shadow: 0 2px 8px rgba(147, 51, 234, 0.5);
 }
 
 /* Order Stats */
@@ -55,18 +68,44 @@
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     border: 2px solid rgba(255, 76, 36, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .order-stat-card {
+    background: #262828;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(147, 51, 234, 0.2);
+}
+
+.order-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dark-mode .order-stat-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 .order-stat-card h4 {
     font-size: 14px;
     color: #999;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-stat-card h4 {
+    color: #a0a0a0;
 }
 
 .order-stat-card p {
     font-size: 28px;
     font-weight: 700;
     color: #7d03c4;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-stat-card p {
+    color: #a855f7;
 }
 
 /* Order List Container */
@@ -93,6 +132,13 @@
     animation: slideIn 0.5s ease-out;
 }
 
+.dark-mode .order-item {
+    background: #262828;
+    border: 2px solid rgba(147, 51, 234, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    color: #b0b0b0;
+}
+
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -110,12 +156,21 @@
     border-color: #7d03c4;
 }
 
+.dark-mode .order-item:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border-color: #9333ea;
+}
+
 /* Parcel Icon */
 .order-item img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     transition: transform 0.3s ease;
+}
+
+.dark-mode .order-item img {
+    filter: brightness(0.9);
 }
 
 .order-item:hover img {
@@ -128,6 +183,11 @@
     color: #333;
     margin-bottom: 15px;
     line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-item-food {
+    color: #e0e0e0;
 }
 
 .order-item-name {
@@ -136,12 +196,22 @@
     margin-top: 15px;
     margin-bottom: 8px;
     font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-item-name {
+    color: #a855f7;
 }
 
 .order-item-address {
     margin-bottom: 12px;
     line-height: 1.6;
     color: #666;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-item-address {
+    color: #a0a0a0;
 }
 
 .order-item-address p {
@@ -153,6 +223,11 @@
     font-weight: 600;
     color: #333;
     margin-top: 8px;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-item-phone {
+    color: #e0e0e0;
 }
 
 .order-item-phone::before {
@@ -167,6 +242,12 @@
     font-weight: 600;
     color: #7d03c4;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .order-item > p:nth-child(3) {
+    background: rgba(147, 51, 234, 0.15);
+    color: #a855f7;
 }
 
 /* Price */
@@ -174,26 +255,43 @@
     font-size: 20px;
     font-weight: 700;
     color: #333;
+    transition: color 0.3s ease;
 }
 
-/* Status Dropdown */
+.dark-mode .order-item > p:nth-child(4) {
+    color: #f5f5f5;
+}
+
+/* Status Dropdown - FIXED NO ARROW DUPLICATION */
 .order-item select {
     background: white;
     border: 2px solid #E0E0E0;
     width: 100%;
     max-width: 180px;
     padding: 12px 15px;
+    padding-right: 40px;
     border-radius: 12px;
     outline: none;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    /* Add single custom arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237d03c4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 12px center;
-    padding-right: 35px;
+    background-size: 16px;
+}
+
+.dark-mode .order-item select {
+    background-color: #1f2121;
+    border: 2px solid rgba(147, 51, 234, 0.2);
+    color: #f5f5f5;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
 .order-item select:focus {
@@ -201,27 +299,78 @@
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
 }
 
+.dark-mode .order-item select:focus {
+    border-color: #9333ea;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.25);
+}
+
 .order-item select:hover {
     border-color: #bb50fa;
 }
 
-/* Status-specific colors */
+.dark-mode .order-item select:hover {
+    border-color: #a855f7;
+}
+
+/* Status-specific colors - backgrounds need to override arrow */
 .order-item select[value="Food Processing"] {
     background-color: rgba(255, 193, 7, 0.1);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F57C00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
     border-color: #FFC107;
     color: #F57C00;
 }
 
+.dark-mode .order-item select[value="Food Processing"] {
+    background-color: rgba(255, 193, 7, 0.15);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB300' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    border-color: #FFD54F;
+    color: #FFB300;
+}
+
 .order-item select[value="Out for delivery"] {
     background-color: rgba(33, 150, 243, 0.1);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231976D2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
     border-color: #2196F3;
     color: #1976D2;
 }
 
+.dark-mode .order-item select[value="Out for delivery"] {
+    background-color: rgba(33, 150, 243, 0.15);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2342A5F5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    border-color: #64B5F6;
+    color: #42A5F5;
+}
+
 .order-item select[value="Delivered"] {
     background-color: rgba(76, 175, 80, 0.1);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23388E3C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
     border-color: #4CAF50;
     color: #388E3C;
+}
+
+.dark-mode .order-item select[value="Delivered"] {
+    background-color: rgba(76, 175, 80, 0.15);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2366BB6A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    border-color: #81C784;
+    color: #66BB6A;
 }
 
 /* Empty State */
@@ -231,6 +380,12 @@
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .order-empty {
+    background: #262828;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .order-empty-icon {
@@ -242,11 +397,21 @@
     font-size: 26px;
     color: #333;
     margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-empty h3 {
+    color: #e0e0e0;
 }
 
 .order-empty p {
     font-size: 16px;
     color: #999;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .order-empty p {
+    color: #a0a0a0;
 }
 
 /* Loading State */
@@ -264,6 +429,11 @@
     border-top-color: #7d03c4;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+}
+
+.dark-mode .spinner {
+    border: 5px solid rgba(147, 51, 234, 0.2);
+    border-top-color: #9333ea;
 }
 
 @keyframes spin {
@@ -294,6 +464,7 @@
 
     .order-item select {
         padding: 10px 12px;
+        padding-right: 35px;
         font-size: 13px;
     }
 

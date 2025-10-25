@@ -34,6 +34,35 @@
 }
 
 /* ===========================
+   DARK MODE VARIABLES
+   =========================== */
+.dark-mode {
+  /* Primary Colors (Purple theme for dark mode) */
+  --primary-color: #9333ea;
+  --primary-light: #a855f7;
+  --primary-dark: #7e22ce;
+  
+  /* Neutral Colors */
+  --text-dark: #f5f5f5;
+  --text-medium: #b0b0b0;
+  --text-light: #a0a0a0;
+  
+  /* Background Colors */
+  --bg-white: #262828;
+  --bg-light: #1f2121;
+  --bg-grey: #1a1c1c;
+  
+  /* Border Colors */
+  --border-light: rgba(147, 51, 234, 0.2);
+  --border-medium: rgba(147, 51, 234, 0.3);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===========================
    GLOBAL RESET
    =========================== */
 * {
@@ -63,6 +92,11 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1c1c 0%, #0f1010 100%);
 }
 
 /* ===========================
@@ -86,6 +120,7 @@ hr {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
   margin: 20px 0;
+  transition: background 0.3s ease;
 }
 
 /* ===========================
@@ -94,6 +129,7 @@ hr {
 .app-content {
   display: flex;
   min-height: 100vh;
+  transition: background 0.3s ease;
 }
 
 /* ===========================
@@ -153,6 +189,7 @@ hr {
 
 ::-webkit-scrollbar-track {
   background: var(--bg-grey);
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -163,6 +200,19 @@ hr {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+/* Dark mode scrollbar */
+.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1c1c;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #7e22ce, #9333ea);
 }
 
 /* ===========================
@@ -267,6 +317,24 @@ img {
   color: #333 !important;
 }
 
+/* Dark mode toasts */
+.dark-mode .Toastify__toast {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode .Toastify__toast--success {
+  background: #66BB6A !important;
+}
+
+.dark-mode .Toastify__toast--error {
+  background: #ef4444 !important;
+}
+
+.dark-mode .Toastify__toast--warning {
+  background: #FFB300 !important;
+  color: #1a1c1c !important;
+}
+
 /* ===========================
    ACCESSIBILITY
    =========================== */
@@ -280,6 +348,26 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* ===========================
+   DARK MODE CLASS HELPER
+   =========================== */
+.dark-mode * {
+  border-color: var(--border-light);
+}
+
+/* Smooth transitions for theme switching */
+body,
+.app-content,
+input,
+textarea,
+select,
+button,
+.sidebar,
+.navbar,
+hr {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ===========================
@@ -333,4 +421,11 @@ img {
   .no-print {
     display: none !important;
   }
+}
+
+/* ===========================
+   DARK MODE BODY CLASS
+   =========================== */
+body.dark-mode {
+  color: var(--text-dark);
 }

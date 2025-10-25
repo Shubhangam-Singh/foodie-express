@@ -3,8 +3,10 @@ import './Add.css'
 import { assets, url } from '../../assets/assets';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useTheme } from '../../context/ThemeContext';
 
 const Add = () => {
+    const { darkMode } = useTheme();
     const [image, setImage] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({
@@ -62,7 +64,7 @@ const Add = () => {
     }
 
     return (
-        <div className='add'>
+        <div className={`add ${darkMode ? 'dark-mode' : ''}`}>
             {/* Page Header */}
             <div className="add-header">
                 <h2>Add New Item</h2>
