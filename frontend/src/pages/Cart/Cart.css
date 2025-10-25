@@ -1,3 +1,7 @@
+/* ========================================
+   CART PAGE WITH DARK MODE SUPPORT
+   ======================================== */
+
 .cart {
     margin: 80px 0px;
     animation: fadeIn 0.6s ease-out;
@@ -16,39 +20,45 @@
 
 .cart hr {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #E2E2E2, transparent);
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
     border: none;
 }
+
+/* ========================================
+   CART ITEMS TABLE
+   ======================================== */
 
 .cart-items-title {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
-    color: #666;
+    color: var(--text-secondary);
     font-size: max(1vw, 13px);
     font-weight: 600;
     padding: 15px 10px;
-    background: linear-gradient(135deg, rgba(255, 76, 36, 0.05), rgba(255, 107, 53, 0.05));
+    background: linear-gradient(135deg, rgba(128, 196, 3, 0.08), rgba(200, 255, 0, 0.08));
     border-radius: 12px;
     margin-bottom: 10px;
 }
 
 .cart-items-item {
     margin: 10px 0px;
-    color: #333;
+    color: var(--text-primary);
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
     padding: 15px 10px;
     border-radius: 10px;
     transition: all 0.3s ease;
-    background: white;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
 }
 
 .cart-items-item:hover {
-    background: rgba(255, 76, 36, 0.03);
+    background: rgba(128, 196, 3, 0.05);
     transform: translateX(5px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(128, 196, 3, 0.3);
 }
 
 .cart-items-item img {
@@ -57,7 +67,7 @@
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 .cart-items-item:hover img {
@@ -66,9 +76,13 @@
 
 .cart-items-item > p {
     font-weight: 500;
+    color: var(--text-primary);
 }
 
-/* Updated quantity counter with +/- buttons */
+/* ========================================
+   QUANTITY COUNTER
+   ======================================== */
+
 .cart-item-quantity {
     display: flex;
     align-items: center;
@@ -79,9 +93,9 @@
 .cart-quantity-btn {
     width: 28px;
     height: 28px;
-    border: 2px solid #FF4C24;
-    background: white;
-    color: #FF4C24;
+    border: 2px solid var(--accent-primary);
+    background: var(--card-bg);
+    color: var(--accent-primary);
     border-radius: 50%;
     cursor: pointer;
     font-size: 18px;
@@ -94,7 +108,7 @@
 }
 
 .cart-quantity-btn:hover {
-    background: #FF4C24;
+    background: var(--accent-primary);
     color: white;
     transform: scale(1.15);
 }
@@ -108,14 +122,18 @@
     text-align: center;
     font-size: 16px;
     font-weight: 700;
-    color: #333;
+    color: var(--text-primary);
 }
+
+/* ========================================
+   REMOVE ICON
+   ======================================== */
 
 .cart-items-remove-icon {
     cursor: pointer;
     font-size: 22px;
     font-weight: bold;
-    color: #FF4C24;
+    color: #ff4444;
     transition: all 0.3s ease;
     width: 32px;
     height: 32px;
@@ -123,15 +141,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(255, 76, 36, 0.1);
+    background: rgba(255, 68, 68, 0.1);
     margin: auto;
 }
 
 .cart-items-remove-icon:hover {
-    background: #FF4C24;
+    background: #ff4444;
     color: white;
     transform: rotate(90deg) scale(1.2);
 }
+
+/* ========================================
+   CART BOTTOM SECTION
+   ======================================== */
 
 .cart-bottom {
     margin-top: 80px;
@@ -140,21 +162,25 @@
     gap: max(12vw, 40px);
 }
 
+/* ========================================
+   CART TOTAL
+   ======================================== */
+
 .cart-total {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding: 30px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(255, 76, 36, 0.1);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
 }
 
 .cart-total h2 {
     font-size: 26px;
-    color: #333;
+    color: var(--text-primary);
     font-weight: 700;
     position: relative;
     padding-bottom: 10px;
@@ -167,32 +193,33 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(128, 196, 3, 0.4);
 }
 
 .cart-total-details {
     display: flex;
     justify-content: space-between;
-    color: #666;
+    color: var(--text-secondary);
     font-size: 16px;
     padding: 5px 0;
 }
 
 .cart-total-details b {
-    color: #333;
+    color: var(--text-primary);
     font-size: 18px;
 }
 
 .cart-total hr {
     margin: 10px 0px;
-    background: #E2E2E2;
+    background: var(--border-color);
 }
 
 .cart-total button {
     border: none;
     color: white;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     width: 100%;
     max-width: 350px;
     padding: 16px 0px;
@@ -202,7 +229,7 @@
     font-weight: 700;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(255, 76, 36, 0.3);
+    box-shadow: 0 5px 20px rgba(128, 196, 3, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -227,24 +254,28 @@
 
 .cart-total button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 76, 36, 0.4);
+    box-shadow: 0 8px 30px rgba(128, 196, 3, 0.4);
 }
 
 .cart-total button:active {
     transform: translateY(-1px);
 }
 
+/* ========================================
+   PROMO CODE SECTION
+   ======================================== */
+
 .cart-promocode {
     flex: 1;
     padding: 30px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(255, 76, 36, 0.1);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
 }
 
 .cart-promocode p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 15px;
     margin-bottom: 15px;
     font-weight: 500;
@@ -255,7 +286,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: var(--bg-secondary);
     border-radius: 12px;
     overflow: hidden;
     border: 2px solid transparent;
@@ -263,9 +294,9 @@
 }
 
 .cart-promocode-input:focus-within {
-    border-color: #FF4C24;
-    background: white;
-    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
+    border-color: var(--accent-primary);
+    background: var(--input-bg);
+    box-shadow: 0 4px 15px rgba(128, 196, 3, 0.15);
 }
 
 .cart-promocode-input input {
@@ -275,17 +306,17 @@
     padding: 15px;
     flex: 1;
     font-size: 15px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .cart-promocode-input input::placeholder {
-    color: #999;
+    color: var(--text-tertiary);
 }
 
 .cart-promocode-input button {
     width: max(10vw, 150px);
     padding: 15px 10px;
-    background: linear-gradient(135deg, #333, #555);
+    background: linear-gradient(135deg, #2d3748, #4a5568);
     border: none;
     color: white;
     border-radius: 10px;
@@ -297,11 +328,14 @@
 }
 
 .cart-promocode-input button:hover {
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     transform: scale(1.05);
 }
 
-/* Empty cart state */
+/* ========================================
+   EMPTY CART STATE
+   ======================================== */
+
 .cart-empty {
     text-align: center;
     padding: 60px 20px;
@@ -311,23 +345,24 @@
 .cart-empty-icon {
     font-size: 80px;
     margin-bottom: 20px;
+    filter: grayscale(50%);
 }
 
 .cart-empty h2 {
     font-size: 28px;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
 .cart-empty p {
     font-size: 16px;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 30px;
 }
 
 .cart-empty button {
     padding: 14px 40px;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     color: white;
     border: none;
     border-radius: 50px;
@@ -335,15 +370,18 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(255, 76, 36, 0.3);
+    box-shadow: 0 5px 20px rgba(128, 196, 3, 0.3);
 }
 
 .cart-empty button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 76, 36, 0.4);
+    box-shadow: 0 8px 30px rgba(128, 196, 3, 0.4);
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1050px) {
     .cart-items-title,
     .cart-items-item {

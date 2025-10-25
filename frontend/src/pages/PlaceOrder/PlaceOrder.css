@@ -1,3 +1,7 @@
+/* ========================================
+   PLACE ORDER PAGE WITH DARK MODE SUPPORT
+   ======================================== */
+
 .place-order {
     display: flex;
     align-items: flex-start;
@@ -18,21 +22,25 @@
     }
 }
 
+/* ========================================
+   LEFT SECTION - DELIVERY INFORMATION
+   ======================================== */
+
 .place-order-left {
     width: 100%;
     max-width: max(45%, 550px);
-    background: white;
+    background: var(--card-bg);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(255, 76, 36, 0.1);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
 }
 
 .place-order-left .title {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 35px;
-    color: #333;
+    color: var(--text-primary);
     position: relative;
     padding-bottom: 15px;
 }
@@ -44,38 +52,43 @@
     left: 0;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(128, 196, 3, 0.4);
 }
 
 .place-order-left input {
     margin-bottom: 18px;
     width: 100%;
     padding: 14px 18px;
-    border: 2px solid #E0E0E0;
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     outline: none;
     font-size: 15px;
     transition: all 0.3s ease;
-    background: #F8F8F8;
-    color: #333;
+    background: var(--input-bg);
+    color: var(--text-primary);
 }
 
 .place-order-left input:focus {
-    border-color: #FF4C24;
-    background: white;
-    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
+    border-color: var(--accent-primary);
+    background: var(--card-bg);
+    box-shadow: 0 4px 15px rgba(128, 196, 3, 0.15);
     transform: translateY(-2px);
 }
 
 .place-order-left input::placeholder {
-    color: #999;
+    color: var(--text-tertiary);
 }
 
 .place-order-left .multi-field {
     display: flex;
     gap: 15px;
 }
+
+/* ========================================
+   RIGHT SECTION - ORDER SUMMARY
+   ======================================== */
 
 .place-order-right {
     width: 100%;
@@ -85,19 +98,22 @@
     gap: 30px;
 }
 
-/* Cart Total Section */
+/* ========================================
+   CART TOTAL SECTION
+   ======================================== */
+
 .cart-total {
-    background: white;
+    background: var(--card-bg);
     padding: 35px;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(255, 76, 36, 0.1);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
 }
 
 .cart-total h2 {
     font-size: 26px;
     font-weight: 700;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 25px;
     position: relative;
     padding-bottom: 12px;
@@ -110,37 +126,41 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(128, 196, 3, 0.4);
 }
 
 .cart-total-details {
     display: flex;
     justify-content: space-between;
-    color: #666;
+    color: var(--text-secondary);
     font-size: 16px;
     padding: 8px 0;
 }
 
 .cart-total-details b {
-    color: #333;
+    color: var(--text-primary);
     font-size: 19px;
 }
 
 .cart-total hr {
     margin: 12px 0;
     height: 1px;
-    background: #E2E2E2;
+    background: var(--border-color);
     border: none;
 }
 
-/* Payment Section */
+/* ========================================
+   PAYMENT SECTION
+   ======================================== */
+
 .payment {
-    background: white;
+    background: var(--card-bg);
     padding: 35px;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(255, 76, 36, 0.1);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -149,7 +169,7 @@
 .payment h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 10px;
     position: relative;
     padding-bottom: 12px;
@@ -162,32 +182,33 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(128, 196, 3, 0.4);
 }
 
 .payment .payment-option {
     display: flex;
     align-items: center;
     gap: 15px;
-    border: 2px solid #E0E0E0;
+    border: 2px solid var(--border-color);
     padding: 18px 20px;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: #F8F8F8;
+    background: var(--input-bg);
 }
 
 .payment .payment-option:hover {
-    background: rgba(255, 76, 36, 0.05);
-    border-color: #FF4C24;
+    background: rgba(128, 196, 3, 0.05);
+    border-color: var(--accent-primary);
     transform: translateX(5px);
 }
 
 .payment .payment-option.active {
-    background: rgba(255, 76, 36, 0.1);
-    border-color: #FF4C24;
-    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.2);
+    background: rgba(128, 196, 3, 0.1);
+    border-color: var(--accent-primary);
+    box-shadow: 0 4px 15px rgba(128, 196, 3, 0.2);
 }
 
 .payment .payment-option img {
@@ -198,14 +219,22 @@
 .payment .payment-option p {
     font-size: 15px;
     font-weight: 500;
-    color: #555;
+    color: var(--text-secondary);
 }
 
-/* Submit Button */
+.payment .payment-option.active p {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
 .place-order-submit {
     margin-top: 30px;
     border: none;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     color: white;
     padding: 16px 40px;
     border-radius: 12px;
@@ -213,7 +242,7 @@
     font-size: 17px;
     font-weight: 700;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(255, 76, 36, 0.3);
+    box-shadow: 0 5px 20px rgba(128, 196, 3, 0.3);
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -239,14 +268,17 @@
 
 .place-order-submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 76, 36, 0.4);
+    box-shadow: 0 8px 30px rgba(128, 196, 3, 0.4);
 }
 
 .place-order-submit:active {
     transform: translateY(-1px);
 }
 
-/* Input Groups */
+/* ========================================
+   INPUT GROUPS
+   ======================================== */
+
 .input-group {
     margin-bottom: 20px;
 }
@@ -255,11 +287,14 @@
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 8px;
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1050px) {
     .place-order {
         gap: 40px;
