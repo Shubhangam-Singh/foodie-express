@@ -13,8 +13,19 @@
     transition: all 0.3s ease;
 }
 
+/* Dark Mode */
+.navbar.dark-mode {
+    background: linear-gradient(135deg, #1f2121 0%, #262828 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgba(125, 3, 196, 0.3);
+}
+
 .navbar:hover {
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+}
+
+.navbar.dark-mode:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* Logo Container */
@@ -46,6 +57,11 @@
     font-size: 20px;
     font-weight: 700;
     color: #333;
+    transition: color 0.3s ease;
+}
+
+.navbar.dark-mode .navbar-title {
+    color: #f5f5f5;
 }
 
 .admin-badge {
@@ -59,6 +75,12 @@
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.3);
     animation: fadeIn 0.5s ease-out;
     white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.navbar.dark-mode .admin-badge {
+    background: linear-gradient(135deg, #32b8c6, #29a4b0);
+    box-shadow: 0 4px 15px rgba(50, 184, 198, 0.4);
 }
 
 @keyframes fadeIn {
@@ -91,10 +113,20 @@
     box-shadow: 0 4px 15px rgba(255, 76, 36, 0.2);
 }
 
+.navbar.dark-mode .profile {
+    border: 3px solid #32b8c6;
+    box-shadow: 0 4px 15px rgba(50, 184, 198, 0.3);
+}
+
 .navbar .profile:hover {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 6px 25px rgba(255, 76, 36, 0.4);
     border-color: #ca1dff;
+}
+
+.navbar.dark-mode .profile:hover {
+    box-shadow: 0 6px 25px rgba(50, 184, 198, 0.5);
+    border-color: #2da6b2;
 }
 
 /* Admin Name */
@@ -105,17 +137,78 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar.dark-mode .admin-name {
+    color: #f5f5f5;
 }
 
 .admin-name span:first-child {
     font-size: 16px;
     color: #7d03c4;
+    transition: color 0.3s ease;
+}
+
+.navbar.dark-mode .admin-name span:first-child {
+    color: #32b8c6;
 }
 
 .admin-name span:last-child {
     font-size: 12px;
     color: #999;
     font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.navbar.dark-mode .admin-name span:last-child {
+    color: rgba(167, 169, 169, 0.7);
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    margin-left: 15px;
+    background: transparent;
+    border: 2px solid rgba(125, 3, 196, 0.3);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar.dark-mode .theme-toggle {
+    border: 2px solid rgba(50, 184, 198, 0.3);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    border-color: #7d03c4;
+    background: rgba(125, 3, 196, 0.1);
+}
+
+.navbar.dark-mode .theme-toggle:hover {
+    border-color: #32b8c6;
+    background: rgba(50, 184, 198, 0.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Icon Rotation Animation */
+.theme-toggle .icon {
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.theme-toggle .icon.rotate {
+    transform: rotate(360deg);
 }
 
 /* Dropdown Menu */
@@ -133,6 +226,12 @@
     transform: translateY(-10px);
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 76, 36, 0.1);
+}
+
+.navbar.dark-mode .profile-dropdown {
+    background: #262828;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(50, 184, 198, 0.2);
 }
 
 .navbar-profile:hover .profile-dropdown {
@@ -159,10 +258,19 @@
     gap: 10px;
 }
 
+.navbar.dark-mode .profile-dropdown li {
+    color: #a7a9a9;
+}
+
 .profile-dropdown li:hover {
     background: rgba(255, 76, 36, 0.08);
     color: #7d03c4;
     transform: translateX(5px);
+}
+
+.navbar.dark-mode .profile-dropdown li:hover {
+    background: rgba(50, 184, 198, 0.15);
+    color: #32b8c6;
 }
 
 .profile-dropdown hr {
@@ -170,6 +278,19 @@
     border: none;
     height: 1px;
     background: #e0e0e0;
+}
+
+.navbar.dark-mode .profile-dropdown hr {
+    background: rgba(119, 124, 124, 0.3);
+}
+
+/* Logout specific styling */
+.profile-dropdown li.logout-item {
+    color: #FF4C24;
+}
+
+.navbar.dark-mode .profile-dropdown li.logout-item {
+    color: #ff5459;
 }
 
 /* Responsive Design */
@@ -190,6 +311,12 @@
     .admin-badge {
         padding: 6px 16px;
         font-size: 13px;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
     }
 }
 
@@ -215,6 +342,13 @@
         width: 40px;
         height: 40px;
     }
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -230,5 +364,12 @@
     .navbar .profile {
         width: 36px;
         height: 36px;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+        margin-left: 8px;
     }
 }
