@@ -40,6 +40,10 @@
 /* ========================================
    LOGO STYLES
    ======================================== */
+/* ========================================
+   NAVBAR LOGO WITH DARK MODE SUPPORT
+   ======================================== */
+
 .navbar .logo {
     width: 150px;
     height: auto;
@@ -54,6 +58,16 @@
     transform: scale(1.08) rotate(-2deg);
     filter: drop-shadow(0 4px 12px rgba(128, 196, 3, 0.35));
 }
+
+/* Dark mode logo fix - invert colors */
+[data-theme="dark"] .navbar .logo {
+    filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(128, 196, 3, 0.3));
+}
+
+[data-theme="dark"] .navbar .logo:hover {
+    filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(128, 196, 3, 0.4));
+}
+
 
 /* ========================================
    MENU ITEMS

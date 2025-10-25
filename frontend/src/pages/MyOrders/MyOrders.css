@@ -1,3 +1,7 @@
+/* ========================================
+   MY ORDERS PAGE WITH DARK MODE SUPPORT
+   ======================================== */
+
 .my-orders {
     margin: 80px 0px;
     animation: fadeIn 0.6s ease-out;
@@ -17,7 +21,7 @@
 .my-orders h2 {
     font-size: 32px;
     font-weight: 700;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
@@ -30,8 +34,9 @@
     left: 0;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(128, 196, 3, 0.4);
 }
 
 .my-orders .container {
@@ -41,6 +46,10 @@
     margin-top: 40px;
 }
 
+/* ========================================
+   ORDER CARD
+   ======================================== */
+
 .my-orders-order {
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
@@ -48,11 +57,11 @@
     gap: 25px;
     font-size: 15px;
     padding: 25px 30px;
-    color: #454545;
-    background: white;
-    border: 2px solid rgba(255, 76, 36, 0.15);
+    color: var(--text-secondary);
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     animation: slideIn 0.5s ease-out;
 }
@@ -70,8 +79,8 @@
 
 .my-orders-order:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-    border-color: #FF4C24;
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-primary);
 }
 
 .my-orders-order img {
@@ -87,11 +96,11 @@
 
 .my-orders-order p {
     line-height: 1.6;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .my-orders-order p span {
-    color: #FF4C24;
+    color: var(--accent-primary);
     font-size: 18px;
     margin-right: 8px;
     animation: pulse 2s infinite;
@@ -108,11 +117,14 @@
 
 .my-orders-order p b {
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
     text-transform: capitalize;
 }
 
-/* Status badges */
+/* ========================================
+   STATUS BADGES
+   ======================================== */
+
 .order-status {
     display: inline-flex;
     align-items: center;
@@ -125,7 +137,7 @@
 
 .status-processing {
     background: rgba(255, 193, 7, 0.15);
-    color: #FF9800;
+    color: #FFC107;
     border: 1px solid rgba(255, 193, 7, 0.3);
 }
 
@@ -136,22 +148,26 @@
 }
 
 .status-delivered {
-    background: rgba(76, 175, 80, 0.15);
-    color: #4CAF50;
-    border: 1px solid rgba(76, 175, 80, 0.3);
+    background: rgba(128, 196, 3, 0.15);
+    color: var(--accent-primary);
+    border: 1px solid rgba(128, 196, 3, 0.3);
 }
+
+/* ========================================
+   TRACK ORDER BUTTON
+   ======================================== */
 
 .my-orders button {
     border: none;
     padding: 12px 20px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     cursor: pointer;
     color: white;
     font-weight: 600;
     font-size: 14px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 76, 36, 0.25);
+    box-shadow: 0 4px 15px rgba(128, 196, 3, 0.25);
     position: relative;
     overflow: hidden;
 }
@@ -176,14 +192,17 @@
 
 .my-orders button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 76, 36, 0.35);
+    box-shadow: 0 6px 25px rgba(128, 196, 3, 0.35);
 }
 
 .my-orders button:active {
     transform: translateY(0);
 }
 
-/* Empty orders state */
+/* ========================================
+   EMPTY ORDERS STATE
+   ======================================== */
+
 .orders-empty {
     text-align: center;
     padding: 80px 20px;
@@ -193,23 +212,24 @@
 .orders-empty-icon {
     font-size: 80px;
     margin-bottom: 20px;
+    filter: grayscale(30%);
 }
 
 .orders-empty h3 {
     font-size: 26px;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
 .orders-empty p {
     font-size: 16px;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 30px;
 }
 
 .orders-empty button {
     padding: 14px 40px;
-    background: linear-gradient(135deg, #FF4C24, #FF6B35);
+    background: var(--accent-gradient);
     color: white;
     border: none;
     border-radius: 50px;
@@ -217,15 +237,18 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(255, 76, 36, 0.3);
+    box-shadow: 0 5px 20px rgba(128, 196, 3, 0.3);
 }
 
 .orders-empty button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 76, 36, 0.4);
+    box-shadow: 0 8px 30px rgba(128, 196, 3, 0.4);
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1050px) {
     .my-orders-order {
         grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr 1fr;

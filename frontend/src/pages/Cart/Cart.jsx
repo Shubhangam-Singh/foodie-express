@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../Context/StoreContext'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, addToCart, getTotalCartAmount, url, currency, deliveryCharge } = useContext(StoreContext);
-  const navigate = useNavigate();
+  const { cartItems, food_list, removeFromCart, addToCart, getTotalCartAmount, url, currency, deliveryCharge } = useContext(StoreContext)
+  const navigate = useNavigate()
 
   // Check if cart is empty
-  const isCartEmpty = getTotalCartAmount() === 0;
+  const isCartEmpty = getTotalCartAmount() === 0
 
   return (
     <div className='cart'>
@@ -47,6 +47,7 @@ const Cart = () => {
                           className="cart-quantity-btn"
                           onClick={() => removeFromCart(item._id)}
                           title="Decrease quantity"
+                          aria-label="Decrease quantity"
                         >
                           −
                         </button>
@@ -57,6 +58,7 @@ const Cart = () => {
                           className="cart-quantity-btn"
                           onClick={() => addToCart(item._id)}
                           title="Increase quantity"
+                          aria-label="Increase quantity"
                         >
                           +
                         </button>
@@ -67,12 +69,14 @@ const Cart = () => {
                         className='cart-items-remove-icon'
                         onClick={() => {
                           // Remove all quantities of this item
-                          const quantity = cartItems[item._id];
+                          const quantity = cartItems[item._id]
                           for (let i = 0; i < quantity; i++) {
-                            removeFromCart(item._id);
+                            removeFromCart(item._id)
                           }
                         }}
                         title="Remove item"
+                        role="button"
+                        aria-label="Remove item from cart"
                       >
                         ×
                       </p>
@@ -81,7 +85,7 @@ const Cart = () => {
                   </div>
                 )
               }
-              return null;
+              return null
             })}
           </div>
 
@@ -116,6 +120,7 @@ const Cart = () => {
                   <input
                     type="text"
                     placeholder='Enter promo code'
+                    aria-label="Promo code"
                   />
                   <button>Apply</button>
                 </div>
