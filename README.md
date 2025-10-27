@@ -32,6 +32,9 @@
 | 👨‍💼 **Admin Panel** | [foodie-express-xi.vercel.app](https://foodie-express-xi.vercel.app/) | Restaurant management dashboard |
 | 🔧 **Backend API** | [foodie-express-production.up.railway.app](https://foodie-express-production.up.railway.app/) | RESTful API server |
 
+or visit frontend [foodie-express-frontend.s3-website.ap-south-1.amazonaws.com](http://foodie-express-frontend.s3-website.ap-south-1.amazonaws.com)
+Admin Hidden for obvious purposes
+
 ---
 
 ## ✨ Features
