@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { food_list, menu_list } from "../assets/assets";
+import { menu_list } from "../assets/assets";
 import axios from "axios";
+
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-
     const url = "http://localhost:4000"
+    
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
@@ -15,8 +16,7 @@ const StoreContextProvider = (props) => {
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
             setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
-        }
-        else {
+        } else {
             setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
         }
         if (token) {
@@ -34,35 +34,66 @@ const StoreContextProvider = (props) => {
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
-            try {
-                if (cartItems[item] > 0) {
-                    let itemInfo = food_list.find((product) => product._id === item);
+            if (cartItems[item] > 0) {
+                // ✅ FIX: Check if itemInfo exists before accessing properties
+                let itemInfo = food_list.find((product) => product._id === item);
+                if (itemInfo) {
                     totalAmount += itemInfo.price * cartItems[item];
+                } else {
+                    console.warn(`Item ${item} not found in food_list`);
                 }
-            } catch (error) {
-
             }
-
         }
         return totalAmount;
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url + "/api/food/list");
-        setFoodList(response.data.data)
+        try {
+            console.log("Fetching food from:", url + "/api/food/list");
+            const response = await axios.get(url + "/api/food/list");
+            console.log("Food response:", response.data);
+            
+            // ✅ FIX: Validate data before setting
+            if (response.data.success && Array.isArray(response.data.data)) {
+                setFoodList(response.data.data);
+                console.log("✅ Food list loaded:", response.data.data.length, "items");
+            } else {
+                console.error("Invalid food data format");
+                setFoodList([]);
+            }
+        } catch (error) {
+            console.error("Error fetching food:", error);
+            setFoodList([]);
+        }
     }
 
-    const loadCartData = async (token) => {
-        const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
-        setCartItems(response.data.cartData);
+    const loadCartData = async (userToken) => {
+        try {
+            // ✅ FIX: Use userToken parameter correctly
+            const response = await axios.post(url + "/api/cart/get", {}, { 
+                headers: { token: userToken } 
+            });
+            
+            if (response.data.success) {
+                setCartItems(response.data.cartData || {});
+            } else {
+                setCartItems({});
+            }
+        } catch (error) {
+            console.error("Error loading cart:", error);
+            setCartItems({});
+        }
     }
 
     useEffect(() => {
         async function loadData() {
             await fetchFoodList();
-            if (localStorage.getItem("token")) {
-                setToken(localStorage.getItem("token"))
-                await loadCartData({ token: localStorage.getItem("token") })
+            
+            const storedToken = localStorage.getItem("token");
+            if (storedToken) {
+                setToken(storedToken);
+                // ✅ FIX: Pass token correctly
+                await loadCartData(storedToken);
             }
         }
         loadData()
@@ -89,7 +120,6 @@ const StoreContextProvider = (props) => {
             {props.children}
         </StoreContext.Provider>
     )
-
 }
 
 export default StoreContextProvider;
