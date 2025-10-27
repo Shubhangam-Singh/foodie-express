@@ -2,7 +2,8 @@ import mongoose, { skipMiddlewareFunction } from "mongoose";
 
 export const  connectDB = async () =>{
 
-    await mongoose.connect('mongodb+srv://shsi2k5:211002@cluster0.l4f20mt.mongodb.net/food-del').then(()=>console.log("DB Connected Shubhangam 😊"));
+    //await mongoose.connect('mongodb+srv://shsi2k5:211002@cluster0.l4f20mt.mongodb.net/food-del').then(()=>console.log("DB Connected Shubhangam 😊"));
+    await mongoose.connect('mongodb+srv://AWS-User:1234567890@aws-cluster.a1bxkce.mongodb.net/ForAWS').then(()=>console.log("DB Connected Shubhangam 2nd😊"));
    
 }
 

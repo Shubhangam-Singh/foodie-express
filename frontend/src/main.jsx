@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import StoreContextProvider from './Context/StoreContext'
+import { ThemeContext } from './Context/ThemeContext.jsx'
 import './index.css'
 
 // Error Boundary Component
